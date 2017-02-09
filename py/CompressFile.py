@@ -35,7 +35,9 @@ def compressOne(originalFile,outFile):
     while data:
         dst.write(compress.compress(data))
         data = infile.read(1024)
+    infile.close()
     dst.write(compress.flush())
+    dst.close()
 
 # path,需要压缩的文件夹，targetFolder压缩后的文件存放目标文件夹
 def compressFile(path,targetFolder):
