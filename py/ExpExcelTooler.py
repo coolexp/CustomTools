@@ -36,7 +36,7 @@ def main():
     showSheets()
 
 def showSheets():
-    xls = u"d:\\Language.xlsx"
+    xls = u"..\\xls\\Language.xlsx"
     book = xlrd.open_workbook(xls)
     for sheet in book.sheets():
         print(sheet.name)
