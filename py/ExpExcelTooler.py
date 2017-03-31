@@ -32,7 +32,22 @@ def getTable(tableName, sheetName):
     f.write(u"\n#endif")
     f.close()
 def main():
-    getTable(u"C:\\Projects\\OFF\\07_SRC\\DATA\\Text.xls", u"Text")
+    #getTable(u"C:\\Projects\\OFF\\07_SRC\\DATA\\Text.xls", u"Text")
+    showSheets()
+
+def showSheets():
+    xls = u"d:\\Language.xlsx"
+    book = xlrd.open_workbook(xls)
+    for sheet in book.sheets():
+        print(sheet.name)
+        nrows = sheet.nrows
+        ncols = sheet.ncols
+        for c in range(1,ncols):
+            print sheet.cell_value(0, c)
+            for r in range(1,nrows):
+                print("%s->%s"%(sheet.cell_value(r,0),sheet.cell_value(r, c)))
+        print(nrows,ncols)
+
 def generateBroadCastType():
     tableName = u"C:\\Projects\\OFF\\07_SRC\\DATA\\MailSystem.xls"
     sheetName = u"BrodcastTemp"
